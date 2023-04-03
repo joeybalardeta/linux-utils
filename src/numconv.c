@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 #include "numconv.h"
 
 int main(int argc, char** argv) {
@@ -80,32 +81,92 @@ void conversion_router(int input, int argc, char** argv) {
 		case -1:
 		case 0:
 			print_error(input);
-			return;
+			break;
 
 		case 1:
 			if (argc != 3) {
 				print_error(input);
-				return;
-			}	
+				break;
+			}
+			
+			int decimal_input = atoi(argv[2]);
+			if (argv[2][0] == '0' && decimal_input == 0){
+				print_error(input);
+				break;
+			}
+
+			printf("Hexadecimal value: 0x%X\n", decimal_input);
+			char* binary_string = decimal_to_binary(decimal_input);
+			printf("Binary value: %s\n", binary_string);
+			free(binary_string);
+			break;
+						
 		case 2:
 			if (argc != 3) {
 				print_error(input);
-				return;
+				break;
 			}	
 		case 3:
 			if (argc != 3) {
 				print_error(input);
-				return;
+				break;
 			}	
 		case 4:
 			if (argc != 5) {
 				print_error(input);
-				return;
+				break;
 			}	
 		case 5:
 			if (argc != 3) {
 				print_error(input);
-				return;
+				break;
 			}	
 	}
+}
+
+
+
+char* decimal_to_binary(int input) {
+	char* binary_string = malloc(sizeof(char) * 100);
+	bzero(binary_string, sizeof(char) * 100);
+	
+	int MAX = 1;
+	int places = 1;
+	int NEGATIVE_FLAG = input < 0 ? 1 : 0;
+
+	if (NEGATIVE_FLAG) {
+		input = -input; 
+		input -= 1;
+	}
+
+	binary_string[0] = '0';
+
+	while (input / (MAX * 2) != 0) {
+		MAX *= 2;
+		places++;
+	}
+
+	for (int i = 0; i < places; i++) {
+		if (input - MAX >= 0) {
+			input -= MAX;
+			binary_string[i + 1] = '1';
+		}
+		else {
+			binary_string[i + 1] = '0';
+		}
+		MAX /= 2;
+	}
+
+	if (NEGATIVE_FLAG) {
+		for (int i = 0; i < 100; i++) {
+			if (binary_string[i] == '0'){
+				binary_string[i] = '1';
+			}
+			else if (binary_string[i] == '1'){
+				binary_string[i] = '0';
+			}
+		}
+	}
+
+	return binary_string;
 }
