@@ -13,7 +13,7 @@ A simple, flexible number converter for general programming uses.
 - RGB to Hex(RGB)
 - Hex(RGB) to RGB
 ##### Images
-<img title="numconv-image-1" alt="numconv decimal testing" src="https://imgur.com/a/k3EUUw7">
+<img title="numconv-image-1" alt="numconv decimal testing" src="images/numconv-decimal-1.png">
 
 
 ## Planned features
