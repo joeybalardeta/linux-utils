@@ -14,6 +14,7 @@ A simple, flexible number converter for general programming uses.
 - Hex(RGB) to RGB
 ##### Images
 <img title="numconv-image-1" alt="numconv decimal testing" src="images/numconv-decimal-1.png">
+<img title="numconv-image-2" alt="numconv hexadecimal testing" src="images/numconv-hexadecimal-1.png">
 
 
 ## Planned features
