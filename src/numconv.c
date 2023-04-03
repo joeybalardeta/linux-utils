@@ -83,7 +83,7 @@ void conversion_router(int input, int argc, char** argv) {
 			print_error(input);
 			break;
 
-		case 1:
+		case 1: {
 			if (argc != 3) {
 				print_error(input);
 				break;
@@ -100,27 +100,41 @@ void conversion_router(int input, int argc, char** argv) {
 			printf("Binary value: %s\n", binary_string);
 			free(binary_string);
 			break;
-						
-		case 2:
+		}
+	
+		case 2: {
 			if (argc != 3) {
 				print_error(input);
 				break;
 			}	
-		case 3:
+			
+
+			int decimal = (int) strtol(argv[2], NULL, 0);
+			printf("Decimal value: %d\n", decimal);
+			char* binary_string = decimal_to_binary(decimal);
+			printf("Binary value: %s\n", binary_string);
+			free(binary_string);
+			break;
+		}
+
+		case 3: {
 			if (argc != 3) {
 				print_error(input);
 				break;
-			}	
-		case 4:
+			}
+		}
+		case 4: {
 			if (argc != 5) {
 				print_error(input);
 				break;
-			}	
-		case 5:
+			}
+		}
+		case 5: {
 			if (argc != 3) {
 				print_error(input);
 				break;
-			}	
+			}
+		}
 	}
 }
 
