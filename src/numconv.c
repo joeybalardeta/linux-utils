@@ -122,18 +122,48 @@ void conversion_router(int input, int argc, char** argv) {
 				print_error(input);
 				break;
 			}
+
+			int decimal = (int) strtol(argv[2], NULL, 2);
+			printf("Decimal value: %d\n", decimal);
+			printf("Hexadecimal value: 0x%X\n", decimal);
+			break;
 		}
+
 		case 4: {
 			if (argc != 5) {
 				print_error(input);
 				break;
 			}
+
+			int R = atoi(argv[2]);
+			int G = atoi(argv[3]);
+			int B = atoi(argv[4]);
+
+
+
+			printf("Hexadecimal RGB value: #%X%X%X\n", R, G, B);
+			break;
 		}
 		case 5: {
 			if (argc != 3) {
 				print_error(input);
 				break;
 			}
+
+			if (argv[2][0] == '#' && strlen(argv[2]) != 7){
+				print_error(input);
+				break;
+			}
+
+			char xR[] = {argv[2][1], argv[2][2], 0};
+			char xG[] = {argv[2][3], argv[2][4], 0};
+			char xB[] = {argv[2][5], argv[2][6], 0};
+
+			int R = (int) strtol(xR, NULL, 16);
+			int G = (int) strtol(xG, NULL, 16);
+			int B = (int) strtol(xB, NULL, 16);
+
+			printf("RGB value: %d %d %d\n", R, G, B);
 		}
 	}
 }
