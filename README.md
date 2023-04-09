@@ -18,4 +18,6 @@ A simple, flexible number converter for general programming uses.
 
 
 ## Planned features
-- sysinfo - one command to list system info (hardware, OS, etc.)
+### aliasmaker
+An easier way to create aliases.
+- Type an alias, have it added instantly to the appropiate terminal config file
