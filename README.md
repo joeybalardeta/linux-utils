@@ -20,4 +20,4 @@ A simple, flexible number converter for general programming uses.
 ## Planned features
 ### aliasmaker
 An easier way to create aliases.
-- Type an alias, have it added instantly to the appropiate terminal config file
+- Type an alias, have it added instantly to the appropriate terminal config file
